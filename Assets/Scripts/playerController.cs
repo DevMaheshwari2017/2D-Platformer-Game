@@ -1,20 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playerController : MonoBehaviour
 {
-     public Animator Animator;
+    public Animator Animator;
     [SerializeField]
     float Jump_Power;
     [SerializeField]
-    float Speed;
+    private float Speed;
     Rigidbody2D RB2d;
 
     private void Start()
     {
+        //DontDestroyOnLoad(this.gameObject);
         RB2d = gameObject.GetComponent<Rigidbody2D>();
     }
+ 
     void PlayerMovement(float Horizonatal)
     {
         Vector2 pos = transform.position;
@@ -23,12 +26,11 @@ public class playerController : MonoBehaviour
     }
     void PlayingAnimation(float Horizonatl) {
         
-        float Vertical = Input.GetAxisRaw("Jump");
         Animator.SetFloat("Speed", Mathf.Abs(Horizonatl));
 
-        if (Vertical > 0)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            Animator.SetBool("IsJumping", true);
+            Animator.SetTrigger("IsJumping");
         }
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
@@ -48,11 +50,7 @@ public class playerController : MonoBehaviour
     }
     void Jumping() // calling as an Animation event - acc to frame
     {
-        RB2d.AddForce(new Vector2(0f,Jump_Power), ForceMode2D.Force);
-    }
-    void StopJumpAnim() // calling as an Animation event - acc to frame
-    {
-        Animator.SetBool("IsJumping", false);
+        RB2d.AddForce(new Vector2(0f, Jump_Power), ForceMode2D.Force);
     }
     void StopCrouchAnim()  // calling as an Animation event - acc to frame
     {
