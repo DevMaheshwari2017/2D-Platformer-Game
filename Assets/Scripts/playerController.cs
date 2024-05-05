@@ -60,12 +60,6 @@ public class playerController : MonoBehaviour
             CheckFalling();    
         }
 
-        //if(!IsGrounded())
-
-    }
-
-    private void FixedUpdate()
-    {       
     }
 
     public void Collectable_PickedUp()
@@ -142,26 +136,27 @@ public class playerController : MonoBehaviour
         }
 
         Vector3 scale = transform.localScale;
-        if (speed < 0) // pressed A/ right arrow 
+        if (Horizonatl < 0) // pressed A/ right arrow 
         {
-            if (IsGrounded() && Input.GetKeyDown(KeyCode.A) && !Animator.GetBool("IsCrouching"))
+            if (IsGrounded() && Input.GetKeyDown(KeyCode.A))
             {
                 SoundManager.Instance.MovementSound(SoundTypes.PlayerMovement, true);
-                
+                Debug.Log("Playing movemnt with a");
             }
             scale.x = -1f * Mathf.Abs(scale.x);
         }
-        else if (speed > 0)  // pressed D/left arrow
+        else if (Horizonatl > 0)  // pressed D/left arrow
         {
-            if (IsGrounded() && Input.GetKeyDown(KeyCode.D) && !Animator.GetBool("IsCrouching"))
+            if (Input.GetKeyDown(KeyCode.D) && IsGrounded())
             {
-                SoundManager.Instance.MovementSound(SoundTypes.PlayerMovement,true);
-               
+                SoundManager.Instance.MovementSound(SoundTypes.PlayerMovement, true);
+                Debug.Log("Playing movemnt with d");
             }
-            
+
             scale.x = Mathf.Abs(scale.x);
         }
         transform.localScale = scale;
+
     }
     public void ThrowbackFromEnemycollision()
     {
@@ -178,22 +173,16 @@ public class playerController : MonoBehaviour
         }
         
     }
-    void StopJumpAnim()
-    {
-        Animator.SetBool("IsJumping", false);
-    }
 
-        PlayerMovement(Horizontal);
-        stoplooping();
-    }
-        PlayerMovement(Horizontal);
-        stoplooping();
-    }
-        PlayerMovement(Horizontal);
-        stoplooping();
-    }
-        PlayerMovement(Horizontal);
-        stoplooping();
+    public void PlayerDied()
+    {
+        if (playerHealth <= 0)
+        {
+            Debug.Log("Player is dead");
+            //death anim
+            UI_Manager.Instance.GameOver();
+            SoundManager.Instance.LowVolSFXSounds(SoundTypes.GameOver);
+        }
     }
 }
 
