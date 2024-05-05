@@ -141,7 +141,6 @@ public class playerController : MonoBehaviour
             if (IsGrounded() && Input.GetKeyDown(KeyCode.A))
             {
                 SoundManager.Instance.MovementSound(SoundTypes.PlayerMovement, true);
-                Debug.Log("Playing movemnt with a");
             }
             scale.x = -1f * Mathf.Abs(scale.x);
         }
@@ -150,7 +149,6 @@ public class playerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.D) && IsGrounded())
             {
                 SoundManager.Instance.MovementSound(SoundTypes.PlayerMovement, true);
-                Debug.Log("Playing movemnt with d");
             }
 
             scale.x = Mathf.Abs(scale.x);
