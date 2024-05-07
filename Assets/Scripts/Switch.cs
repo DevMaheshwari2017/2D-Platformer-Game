@@ -5,9 +5,13 @@ using UnityEngine;
 public class Switch : MonoBehaviour
 {
     [SerializeField]
-    private Animator animator;
+    private GameComplete gameComplete;
     [SerializeField]
     private GameObject intreactPanel;
+    [SerializeField]
+    private Sprite switchTurnedOnSprite;
+
+    private bool intereacted = false;
 
     private void Start()
     {
@@ -20,10 +24,27 @@ public class Switch : MonoBehaviour
         {
             intreactPanel.SetActive(true);
 
+        }
+    }
+
+    private void TurnOn() 
+    {
+        if (!intreactPanel.activeInHierarchy)
+            return;
+
+        if (intereacted == true)
+            return;
+
             if (Input.GetKeyDown(KeyCode.E)) 
             {
-                animator.SetTrigger("SwitchTurnOn");
-            }
-        }
+               gameObject.GetComponent<SpriteRenderer>().sprite = switchTurnedOnSprite;
+               gameComplete.UpdateDoorOpeningStage();
+               intereacted = true;
+            }               
+      
+    }
+    private void Update()
+    {
+        TurnOn();
     }
 }

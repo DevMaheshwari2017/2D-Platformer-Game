@@ -322,7 +322,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6629333617421782118}
   - component: {fileID: 3988429562522964409}
-  - component: {fileID: 7636872106559940573}
   - component: {fileID: 695161923118587391}
   - component: {fileID: 3780548564372873883}
   m_Layer: 0
@@ -342,7 +341,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 120.47, y: 11.83, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3154024585109451177}
@@ -400,27 +399,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &7636872106559940573
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7331351214205012582}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: cadb95b65d1e6ae488e6209bfbe1f63d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!61 &695161923118587391
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -478,5 +456,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcab78b687a502246b22c71991db3c5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 7636872106559940573}
   intreactPanel: {fileID: 4878391930409855498}
+  switchTurnedOnSprite: {fileID: 21300002, guid: d718e5e633b23ce4096bff9a77d77325,
+    type: 3}
