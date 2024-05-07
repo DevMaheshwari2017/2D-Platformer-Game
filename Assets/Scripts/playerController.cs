@@ -118,7 +118,7 @@ public class playerController : MonoBehaviour
         //IsGrounded() is called before checking for the jump key. C# implements "shortcutting"
         //which means that if you have 2 AND conditions in an if statement and it fails the first one, it won't even check for the second one.
         //If the IsGrounded() is in the second one, then it won't draw the raycast.
-        if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
+        if (IsGrounded() && !Animator.GetBool("IsCrouching") && Input.GetKeyDown(KeyCode.Space))
         {
             SoundManager.Instance.SFXSounds(SoundTypes.Jump);
             Animator.SetTrigger("IsJumping");
@@ -128,6 +128,7 @@ public class playerController : MonoBehaviour
         
         if (IsGrounded() && Input.GetKeyDown(KeyCode.LeftControl)) //CrouchDown
         {
+            Debug.Log("Crouching activating");
             Animator.SetBool("IsCrouching", true);         
         }
         if (IsGrounded() && Input.GetKeyUp(KeyCode.LeftControl)) //CrouchUp when key is released
