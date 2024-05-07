@@ -8,6 +8,8 @@ public class FloatingBridge : MonoBehaviour
     private Transform[] floatingPoints;
     [SerializeField]
     private int speed;
+
+    private Animator animator;
     private Transform currenpoint;
     private bool isPlayerOnBridge;
     private void Start()
@@ -33,6 +35,7 @@ public class FloatingBridge : MonoBehaviour
         // Check if the player is on the bridge.
         if (isPlayerOnBridge && player != null)
         {
+            animator.SetBool("IsOnFloatingPad", true);
             // Calculate the offset between the bridge and the player.
             Vector3 offset = player.position - transform.position;
 
@@ -50,6 +53,7 @@ public class FloatingBridge : MonoBehaviour
             isPlayerOnBridge = true;
             SoundManager.Instance.LoopingSound(SoundTypes.HoveringPad);
             player = other.transform;
+            animator = player.GetComponent<playerController>().GetPlayerAnimator();
         }
     }
 
@@ -59,7 +63,8 @@ public class FloatingBridge : MonoBehaviour
         {
             isPlayerOnBridge = false;
             SoundManager.Instance.loopinSounds.Pause();
-           player = null;
+            player = null;
+            animator.SetBool("IsOnFloatingPad", false);
         }
     }
     private void OnDrawGizmos()

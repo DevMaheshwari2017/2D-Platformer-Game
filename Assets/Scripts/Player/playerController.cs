@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class playerController : MonoBehaviour
 {
-     public Animator Animator;
+    [SerializeField]
+    private Animator animator;
     [SerializeField]
     float Jump_Power;
     [SerializeField]
@@ -20,9 +21,10 @@ public class playerController : MonoBehaviour
     [SerializeField]
     private BoxCollider2D platformCollider;
     [SerializeField]
-    private float fallingThreshold; 
+    private float fallingThreshold;
 
-
+    //Getter
+    public Animator GetPlayerAnimator() => animator;
     private static playerController instance;
     public static playerController Instance { get { return instance; } }
     private void Awake()
@@ -51,11 +53,11 @@ public class playerController : MonoBehaviour
 
         if (IsGrounded())
         {
-            Animator.SetBool("IsGrounded", true);
+            animator.SetBool("IsGrounded", true);
         }
         else 
         { 
-            Animator.SetBool("IsGrounded", false);
+            animator.SetBool("IsGrounded", false);
             CheckFalling();    
         }
 
@@ -106,32 +108,33 @@ public class playerController : MonoBehaviour
 
     private void FallingAnim()
     {
-        Animator.SetTrigger("Falling");
+        animator.SetTrigger("Falling");
     }
 
     private void PlayingAnimation(float Horizonatl) {
         
-        Animator.SetFloat("Speed", Mathf.Abs(Horizonatl));
+        animator.SetFloat("Speed", Mathf.Abs(Horizonatl));
 
         //IsGrounded() is called before checking for the jump key. C# implements "shortcutting"
         //which means that if you have 2 AND conditions in an if statement and it fails the first one, it won't even check for the second one.
         //If the IsGrounded() is in the second one, then it won't draw the raycast.
-        if (IsGrounded() && !Animator.GetBool("IsCrouching") && Input.GetKeyDown(KeyCode.Space))
+        if (IsGrounded() && !animator.GetBool("IsCrouching") && Input.GetKeyDown(KeyCode.Space))
         {
              SoundManager.Instance.SFXSounds(SoundTypes.Jump);
-            Animator.SetTrigger("IsJumping");
+            animator.SetTrigger("IsJumping");
+            animator.SetBool("IsOnFloatingPad", false);
             RB2d.AddForce(new Vector2(0f, Jump_Power), ForceMode2D.Impulse);
-            Debug.Log("Jumping trrigered");
+            
         }
         
         if (IsGrounded() && Input.GetKeyDown(KeyCode.LeftControl)) //CrouchDown
         {
             Debug.Log("Crouching activating");
-            Animator.SetBool("IsCrouching", true);         
+            animator.SetBool("IsCrouching", true);         
         }
         if (IsGrounded() && Input.GetKeyUp(KeyCode.LeftControl)) //CrouchUp when key is released
         {
-            Animator.SetBool("IsCrouching", false);
+            animator.SetBool("IsCrouching", false);
         }
 
         Vector3 scale = transform.localScale;

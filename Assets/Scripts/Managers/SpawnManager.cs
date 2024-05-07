@@ -28,7 +28,8 @@ public class SpawnManager : MonoBehaviour
     {
        Debug.Log("SpawingPlayer");
        SpawnedPlayer = Instantiate(PlayerPrefab, transform.position, Quaternion.identity);
-        
+        GameManager.Instance.SetPlayerController(SpawnedPlayer.GetComponent<playerController>());
+        GameManager.Instance.SetUIManager(SpawnedPlayer.GetComponentInChildren<UI_Manager>());
        CameraFollow camerfollow = FindAnyObjectByType<CameraFollow>();
 
         if(camerfollow != null)

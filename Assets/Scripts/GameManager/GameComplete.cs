@@ -15,6 +15,14 @@ public class GameComplete : MonoBehaviour
 
     private int doorOpeningStages = 0;
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        playerController playerController = collision.gameObject.GetComponent<playerController>();
+        if (playerController != null && doorOpeningStages == 3) 
+        {
+            GameManager.Instance.GetUIManager().GameComplete();
+        }
+    }
     public void UpdateDoorOpeningStage() 
     {
         doorOpeningStages++;

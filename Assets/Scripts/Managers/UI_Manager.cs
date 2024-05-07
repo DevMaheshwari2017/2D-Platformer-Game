@@ -15,6 +15,8 @@ public class UI_Manager : MonoBehaviour
     private GameObject gameCompletedPanel;
     [SerializeField]
     private Animator uiAnim;
+    [SerializeField]
+    private GameObject gameCompletePanel;
 
     private static UI_Manager instance;
     public static UI_Manager Instance { get { return instance; } }
@@ -32,6 +34,7 @@ public class UI_Manager : MonoBehaviour
     }
     void Start()
     {
+        gameCompletedPanel.SetActive(false);
         pausedPanel.SetActive(false);
         GameOver_Panel.SetActive(false);
         levelComplete.SetActive(false);
@@ -112,4 +115,8 @@ public class UI_Manager : MonoBehaviour
         }
     }
 
+    public void GameComplete() 
+    {
+        gameCompletedPanel.SetActive(true);
+    }
 }
