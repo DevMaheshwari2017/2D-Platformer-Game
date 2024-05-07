@@ -170,7 +170,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 88cf4c38c64a7b84f88a54036e698825, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -309,6 +309,7 @@ MonoBehaviour:
   SfxSound: {fileID: 2532310822164037881}
   loopinSounds: {fileID: 5020764468639531493}
   lowVolSounds: {fileID: 4041656743583837041}
+  mute: {fileID: 0}
   sounds:
   - sound: 1
     clip: {fileID: 8300000, guid: 9a6c7b4eb436659439202963a40d40d2, type: 3}

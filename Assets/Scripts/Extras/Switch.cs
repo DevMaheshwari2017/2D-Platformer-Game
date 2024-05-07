@@ -23,7 +23,6 @@ public class Switch : MonoBehaviour
         if (playerController != null)
         {
             intreactPanel.SetActive(true);
-
         }
     }
 

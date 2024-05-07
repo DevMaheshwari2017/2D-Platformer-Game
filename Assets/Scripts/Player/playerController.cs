@@ -23,7 +23,6 @@ public class playerController : MonoBehaviour
     private float fallingThreshold; 
 
 
-    private float distanceToGround;
     private static playerController instance;
     public static playerController Instance { get { return instance; } }
     private void Awake()
@@ -86,8 +85,7 @@ public class playerController : MonoBehaviour
         }
         else
         {
-            Boxcolor = Color.red;
-            distanceToGround = Mathf.Abs(raycastHit.point.y - boxCollider2D.bounds.center.y);
+            Boxcolor = Color.red;        
         }
 
         // drawing an BoxCast visual to see in the scene whats going on
@@ -120,7 +118,7 @@ public class playerController : MonoBehaviour
         //If the IsGrounded() is in the second one, then it won't draw the raycast.
         if (IsGrounded() && !Animator.GetBool("IsCrouching") && Input.GetKeyDown(KeyCode.Space))
         {
-            SoundManager.Instance.SFXSounds(SoundTypes.Jump);
+             SoundManager.Instance.SFXSounds(SoundTypes.Jump);
             Animator.SetTrigger("IsJumping");
             RB2d.AddForce(new Vector2(0f, Jump_Power), ForceMode2D.Impulse);
             Debug.Log("Jumping trrigered");

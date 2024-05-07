@@ -4,6 +4,7 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject PlayerPrefab;
+
     private GameObject SpawnedPlayer;
 
     public static SpawnManager instance;
