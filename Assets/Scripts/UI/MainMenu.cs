@@ -7,6 +7,8 @@ public class MainMenu : MonoBehaviour
     private GameObject levelSelection;
     [SerializeField]
     private GameObject optionPanel;
+    [SerializeField]
+    private GameObject gameIntroductionPanel;
 
     private void Start()
     {
@@ -17,10 +19,21 @@ public class MainMenu : MonoBehaviour
         SoundManager.Instance.SFXSounds(SoundTypes.OnClick);
         optionPanel.SetActive(true);
     }
+
     public void Play()
    {
-        SoundManager.Instance.SFXSounds(SoundTypes.OnClick);
-        SceneManager.LoadScene(1);
+        if (PlayerPrefs.GetInt("IntroductionStory", 0) == 0)
+        {
+            gameIntroductionPanel.SetActive(true);
+            gameIntroductionPanel.GetComponent<GameIntroduction>().StartGameIntroduction();
+            PlayerPrefs.SetInt("IntroductionStory", 1);
+            PlayerPrefs.Save();
+        }
+        else
+        {
+            SoundManager.Instance.SFXSounds(SoundTypes.OnClick);
+            SceneManager.LoadScene(1);
+        }
    }
 
     public void Quit()

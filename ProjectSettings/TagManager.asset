@@ -7,6 +7,7 @@ TagManager:
   - Platform
   - ToLv2
   - Score
+  - LevelButton
   layers:
   - Default
   - TransparentFX

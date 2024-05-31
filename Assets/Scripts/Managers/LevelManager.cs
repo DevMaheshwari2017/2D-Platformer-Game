@@ -10,6 +10,8 @@ public class LevelManager : MonoBehaviour
 {
     private int leveltoUnlock;
     [SerializeField] private string lv1;
+    [SerializeField]
+    LevelSelector levelSelector;
 
     private void Start()
     {
@@ -37,6 +39,7 @@ public class LevelManager : MonoBehaviour
         leveltoUnlock = currentscene.buildIndex + 1;
         if( leveltoUnlock < SceneManager.sceneCountInBuildSettings)
         {
+           LevelSelector.Instance.LevelUnlocked(leveltoUnlock);
             SceneManager.LoadScene(leveltoUnlock);
             Debug.Log("Level unlocked " + leveltoUnlock);
         }

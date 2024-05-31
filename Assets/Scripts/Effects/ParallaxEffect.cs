@@ -34,17 +34,6 @@ public class ParallaxEffect : MonoBehaviour
         } 
         
     }
-
-    private void OnDrawGizmos()
-    {
-        if (!boxCollider2D)
-            return;
-        Gizmos.color = Color.red;
-        Vector3 spherePos = transform.position;
-        spherePos.x += textureUnitSizeX;
-        spherePos.y += boxCollider2D.offset.y;
-        Gizmos.DrawSphere(spherePos, 1f);
-    }
     private void LateUpdate()
     {
         Vector3 deltaMovement = cameraTransform.position - lastPosition;
@@ -60,9 +49,18 @@ public class ParallaxEffect : MonoBehaviour
         {        
             float offsetPosX = (cameraTransform.position.x - transform.position.x) % textureUnitSizeX;
             Vector3 endPos = new Vector3(cameraTransform.position.x + offsetPosX,transform.position.y,0);
-            //Vector3 startPos = new Vector3(transform.position.x, 0 ,0);
             transform.position = Vector3.Lerp(transform.position, endPos, 0.4f);
-            //transform.position = new Vector3(cameraTransform.position.x + offsetPosX, transform.position.y);
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (!boxCollider2D)
+            return;
+        Gizmos.color = Color.red;
+        Vector3 spherePos = transform.position;
+        spherePos.x += textureUnitSizeX;
+        spherePos.y += boxCollider2D.offset.y;
+        Gizmos.DrawSphere(spherePos, 1f);
     }
 }

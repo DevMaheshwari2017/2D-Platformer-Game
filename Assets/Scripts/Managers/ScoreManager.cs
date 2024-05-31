@@ -13,7 +13,6 @@ public class ScoreManager : MonoBehaviour
 
     private void Start()
     {
-        //whenever Game Started score will automaticaly be zero(even when switch to a different scene it helps) as we have defined it zero 
         IncreasingScoreInUI();
     }
     public void Update_Score(int increase )

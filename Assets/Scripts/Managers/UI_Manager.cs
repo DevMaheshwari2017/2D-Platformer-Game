@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 public class UI_Manager : MonoBehaviour
 {
     [SerializeField]
+    LevelSelector levelSelector;
+    [SerializeField]
     private GameObject GameOver_Panel;
     [SerializeField]
     private GameObject[] hearts;
@@ -41,6 +43,13 @@ public class UI_Manager : MonoBehaviour
         gameCompletedPanel.SetActive(false);
         UpdatehealthOnUI();
         //GameOver_Panel.SetActive(false);
+    }
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            GamePasued();
+        }
     }
 
     public void UpdatehealthOnUI()
@@ -94,10 +103,12 @@ public class UI_Manager : MonoBehaviour
    
     public void MainMenu()
     {
+        
         SoundManager.Instance.SFXSounds(SoundTypes.OnClick);
         Debug.Log("MainMenu");
         SceneManager.LoadScene(0);
         Time.timeScale = 1f;
+        LevelSelector.Instance.UpdateLevelButtons();
     }
 
     public void Resume()
@@ -107,13 +118,6 @@ public class UI_Manager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    private void Update()
-    {
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            GamePasued();
-        }
-    }
 
     public void GameComplete() 
     {

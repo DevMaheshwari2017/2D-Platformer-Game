@@ -45,3 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lv1: Level1
+  levelSelector: {fileID: 3681714471289589915, guid: 96d19e017b5461449afe2432ae93ad2e,
+    type: 3}

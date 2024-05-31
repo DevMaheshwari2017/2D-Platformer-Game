@@ -333,6 +333,14 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 31b2284e8ab3f244182080ca7da474b7, type: 3}
   - sound: 10
     clip: {fileID: 8300000, guid: eab9a0a14da60e849adb421b97581aa8, type: 3}
+  - sound: 11
+    clip: {fileID: 8300000, guid: fd477c27771af674f8c6f1b0897ea782, type: 3}
+  - sound: 12
+    clip: {fileID: 8300000, guid: 5fe38e109da39284aabca54472257b77, type: 3}
+  - sound: 13
+    clip: {fileID: 8300000, guid: 6045764a94490c243b4407eb7a3ebfda, type: 3}
+  - sound: 14
+    clip: {fileID: 8300000, guid: cb942b723264b6544b75dbfff2f34e7b, type: 3}
   volume: 1
 --- !u!81 &6043589807969742068
 AudioListener:

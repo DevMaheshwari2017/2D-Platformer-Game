@@ -54,6 +54,10 @@ public class SoundManager : MonoBehaviour
         bgSound.volume = volume;
         SfxSound.volume = volume;
     }
+
+    public void StopPlayingBGSound() => bgSound.volume = 0;
+
+    public void startPlayingBGSound() => bgSound.volume = 1;
     public void MovementSound(SoundTypes sound, bool play)
     {
         if (isMute)
@@ -146,7 +150,7 @@ public class SoundManager : MonoBehaviour
 
 public enum SoundTypes
 {
-    BGSound,OnClick,Jump,PlayerMovement,EnemyDeath,GameOver,Collectables,Teleportation,Land,Hurt,HoveringPad
+    BGSound,OnClick,Jump,PlayerMovement,EnemyDeath,GameOver,Collectables,Teleportation,Land,Hurt,HoveringPad, Fighthng, LaserShooting, ShipFallingDown, TheUnknownDark
 }
 
 [Serializable]
