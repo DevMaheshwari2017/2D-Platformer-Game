@@ -37,7 +37,7 @@ public class LevelManager : MonoBehaviour
         SetLevelStatus(currentscene.name, LevelStat.Completed);
 
         leveltoUnlock = currentscene.buildIndex + 1;
-        if( leveltoUnlock < SceneManager.sceneCountInBuildSettings)
+        if( leveltoUnlock < SceneManager.sceneCountInBuildSettings) 
         {
            LevelSelector.Instance.LevelUnlocked(leveltoUnlock);
             SceneManager.LoadScene(leveltoUnlock);

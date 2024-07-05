@@ -91,13 +91,6 @@ public class LevelSelector : MonoBehaviour
         FindAndInitializeButtons();
         Debug.Log("Inside update level button");
         //Debug.Log("Number of level buttons: " + levelButtons.Length); // Check the length of the array
-
-        //if (levelPlayable == 1)
-        //    levelButtons[0].interactable = true;
-        //else if (levelPlayable == 2)
-        //    levelButtons[1].interactable = true;
-        //else if (levelPlayable == 3)
-        //    levelButtons[2].interactable = true;
         if (levelButtons.Length == 0)
         {
             Debug.LogError("Level buttons array is empty. Please assign the buttons in the inspector.");
