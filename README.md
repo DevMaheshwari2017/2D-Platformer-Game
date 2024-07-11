@@ -24,7 +24,7 @@
 
 **Visually Appealing UI Design:** Designed an attractive user interface to elevate the overall gaming experience.
 
-### Technologies Used
+## Technologies Used
 
 **Game Engine:** Unity
 
@@ -34,7 +34,14 @@
 
 **UI Design:** Created visually appealing and user-friendly interfaces
 
+
 ## Preview
+
+
+### [Web-To-Play](https://outscal.com/devmaheswari2017/game/play-the-explorer-2-game) 
+
+
+### Gameplay video : 
 
 
 [![Gameplay Video](https://img.youtube.com/vi/6NSI4tPBfrc/0.jpg)](https://www.youtube.com/watch?v=6NSI4tPBfrc)
