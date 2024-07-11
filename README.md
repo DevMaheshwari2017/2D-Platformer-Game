@@ -37,6 +37,6 @@
 ## Preview
 
 
-[![Ellen : Lost in Sapce Gameplay video](https://img.youtube.com/vi/9KtYS3CM_Q/0.jpg)](https://www.youtube.com/watch?v=9KtYS3CM_Q)
+[![Gameplay Video](https://img.youtube.com/vi/9KtYS3CM_Q/0.jpg)(https://www.youtube.com/watch?v=9KtYS3CM_Q)
 
 
