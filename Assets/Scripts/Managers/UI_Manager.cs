@@ -108,7 +108,7 @@ public class UI_Manager : MonoBehaviour
         Debug.Log("MainMenu");
         SceneManager.LoadScene(0);
         Time.timeScale = 1f;
-        LevelSelector.Instance.UpdateLevelButtons();
+       // levelSelector.Instance.UpdateLevelButtons();
     }
 
     public void Resume()

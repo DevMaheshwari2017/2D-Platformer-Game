@@ -44,7 +44,7 @@ public class SoundManager : MonoBehaviour
     {
         isMute = !isMute;
         AudioListener.volume = isMute ? 0 : 1;
-        mute.text = isMute ? "UnMute" : "Mute" ;
+        //mute.text = isMute ? "UnMute" : "Mute" ;
         Debug.Log(isMute);
     }
 
